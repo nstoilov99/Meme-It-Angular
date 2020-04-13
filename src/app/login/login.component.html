@@ -1,0 +1,19 @@
+<div class="login-form">
+  <form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value)">
+      <h2 class="text-center">Login</h2>       
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="E-mail" #emailInput="ngModel" type="text" ngModel name="email" id="email" class="form-control"
+          pattern="[a-zA-Z0-9.-_]{6,}@gmail\.com" required>
+          <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">Please enter valid gmail.com email!</p>
+      </div>
+        <div class="form-group">
+          <input #passwordInput="ngModel" required minlength="6" type="password" ngModel name="password" id="password"
+          class="form-control" placeholder="Password">
+        </div>
+        <p class="error-message" *ngIf="passwordInput.touched && passwordInput.invalid">Please enter a password!</p>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </div>     
+  </form>
+  <p class="text-center"><a routerLink="/register">Create an Account</a></p>
+</div>
