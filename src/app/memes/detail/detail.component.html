@@ -1,0 +1,7 @@
+<div  *ngIf="currentMeme">
+  <div class="card">
+    <h1>{{currentMeme.memeTitle}}</h1>
+    <img [src]="currentMeme.imageUrl" alt="404" style="width:100%">
+    <!-- <button (click)="likeHandler()">Like</button><p #likes>{{currentMeme.likes}}</p> -->
+  </div>
+</div>
