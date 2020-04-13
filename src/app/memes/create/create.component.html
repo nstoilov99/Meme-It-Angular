@@ -1,0 +1,19 @@
+<div class="col-md-4">
+  <h1 class="text-italic">Upload your meme</h1>
+  <form [formGroup]="form" (ngSubmit)="createMemeHandler()">
+    <div class="form-group">
+      <label for="memeTitle">Title</label>
+      <input type="text" formControlName="memeTitle" id="memeTitle" class="form-control" placeholder="My title is ..."
+        minlength="10">
+      <p class="error-message" *ngIf="form.get('memeTitle').invalid && form.get('memeTitle').touched">Enter meme name!</p>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control" placeholder="https://..."
+        pattern="https?:\/\/.*">
+    </div>
+    <p class="error-message" *ngIf="form.get('imageUrl').invalid && form.get('imageUrl').touched">Please provice valid
+      url!</p>
+    <button [disabled]="form.invalid" class="btn btn-primary">Create</button>
+  </form>
+</div>
