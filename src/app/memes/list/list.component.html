@@ -1,0 +1,13 @@
+<h1>Memes</h1>
+<div class="row">
+
+  <div class="col-xs-12" *ngIf="memes">
+    <a *ngFor="let meme of memes" (click)="selectMemeHandler(meme)" class="list-group-item clearfix">
+      <div class="card">
+        <h1>{{meme.memeTitle}}</h1>
+        <img [src]="meme.imageUrl" alt="404" style="width:100%">
+        <p><button *ngIf="isLogged"  [routerLink]="['detail', meme._id]">View details</button></p>
+      </div>
+    </a>
+  </div>
+</div>
