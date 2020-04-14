@@ -6,13 +6,14 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoggedAuthGuard implements CanActivate {
   constructor(private userService: UserService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let user = sessionStorage.getItem('user')
-    if (!user){
-      return this.userService.authCompleted$.pipe(map(user => !!user), catchError(err => [false]));
+    if (user){
+      return false;
+      
     }
     
     return true;

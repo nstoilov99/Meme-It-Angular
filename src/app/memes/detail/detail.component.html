@@ -2,6 +2,11 @@
   <div class="card">
     <h1>{{currentMeme.memeTitle}}</h1>
     <img [src]="currentMeme.imageUrl" alt="404" style="width:100%">
-    <!-- <button (click)="likeHandler()">Like</button><p #likes>{{currentMeme.likes}}</p> -->
+    <form [formGroup]="form" (ngSubmit)="handleComment()">
+      <textarea formControlName="comment" formControlName="comment">
+            Comment here...
+        </textarea>
+      <button type="submit" class="btn btn-primary btn-block">Comment</button>
+    </form>
   </div>
-</div>
+</div>  

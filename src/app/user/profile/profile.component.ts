@@ -39,8 +39,16 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.memeService.load().subscribe((memes: IMeme[]) => {
+      console.log(this.userService.isLogged);
       this.myMemes = memes.filter(c => c.author._id === this.userService.currentUser._id);
+      
+      
     });
+  }
+
+  handleSubmit({ email, passwords: { password } }: { email: string, passwords: { password: string } }) {
+    this.userService.updateProfile(email, password).subscribe(() => {
+    }, console.error);
   }
 
   logout() {

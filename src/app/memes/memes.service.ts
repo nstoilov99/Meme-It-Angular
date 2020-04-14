@@ -24,14 +24,20 @@ export class MemesService {
       })
     );
   }
+  loadComment(id){
+    return this.http.get('memes/detail/'+id);
+  }
 
   create(meme: any) {
     return this.http.post<IMeme>('memes', meme);
   }
 
-  like(likes: number) {
-    return this.http.put<IMeme>(`memes/${this.selectedMeme._id}`, { likes });
+  createComment(id: string, comment: string) {
+    return this.http.put('memes/detail/'+id, comment);
   }
+
+
+
 
   selectMeme(meme: IMeme) {
     (this as any).selectedMeme = meme;

@@ -5,20 +5,21 @@
       <a class="float-right custom-button btn btn-danger" (click)="logout()">Logout</a>
     </div>
     <div class="panel-footer">
-<!-- 
-      <form [formGroup]="form">
+
+      <form #profileForm="ngForm" [formGroup]="form" (ngSubmit)="handleSubmit(profileForm.value)">
         <div class="form-group">
           <label for="email">New address</label>
-          <input formControlName="email" type="text" id="newEmail" class="form-control"
+          <input ngModel name="newEmail" type="text" id="newEmail" class="form-control" formControlName="email"
             placeholder="john.doe@domain.bg">
           <p class="error-message" *ngIf="form.get('email').invalid && form.get('email').touched">Please enter valid
             gmail.com email!
           </p>
         </div>
         <div formGroupName="passwords">
-          <div class="form-group">
+          <div  class="form-group">
             <label for="password">New Password</label>
             <input
+              ngModel
               [ngClass]="{ 'password-match-invalid': form.get('passwords').invalid, 'password-match-touched': form.get('passwords').touched }"
               formControlName="password" type="password" id="password" class="form-control" placeholder="************">
           </div>
@@ -34,7 +35,7 @@
             match!</p>
         </div>
         <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Change profile information</button>
-      </form> -->
+      </form>
 
     </div>
   </div>
@@ -47,7 +48,7 @@
     <div class="panel-footer">
       <div class="panel panel-default">
         <div class="panel-body panel-primary">
-          My own memes: [{{myMemes.length}}]
+          My own memes: [{{myMemes ?  myMemes.length : 0}}]
         </div>
 
         <div class="panel-footer">

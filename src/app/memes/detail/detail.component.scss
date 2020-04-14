@@ -1,6 +1,5 @@
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 550px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -21,4 +20,29 @@
 
 .card button:hover {
   opacity: 0.7;
+}
+
+textarea {
+  width: 54%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+form button {
+  border: none;
+  outline: 0;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 25%;
+  font-size: 18px;
+  margin: auto;
 }

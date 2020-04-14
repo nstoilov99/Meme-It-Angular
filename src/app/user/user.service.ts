@@ -25,16 +25,21 @@ export class UserService {
   login(email: string, password: string) {
     return this.http.post('user/login', { email, password }).pipe(tap((user: any) => {
       this.currentUser = user;
+      sessionStorage.setItem('user', user._id);
     }));
   }
 
   register(email: string, password: string) {
     return this.http.post('user/register', { email, password });
   }
+  updateProfile(email: string, password: string) {
+    return this.http.put('user/'+this.currentUser._id, { email, password });
+  }
 
   logout() {
     return this.http.post('user/logout', {}).pipe(tap(() => {
       this.currentUser = null;
+      sessionStorage.clear()
     }));
   }
 }

@@ -4,15 +4,17 @@ import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
 import { MemeRoutingModule } from './meme-routing.module';
 import { ListComponent } from './list/list.component';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CanDonatePipe } from './can-donate.pipe';
 
 @NgModule({
-  declarations: [CreateComponent, DetailComponent, ListComponent, CanDonatePipe],
+  declarations: [CreateComponent, DetailComponent, ListComponent],
   imports: [
+    FormsModule,
     CommonModule,
     MemeRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   exports: [
     ListComponent,

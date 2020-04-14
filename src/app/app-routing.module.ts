@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavigationComponent } from './core/navigation/navigation.component';
 import { ListComponent } from './memes/list/list.component';
+import { LoggedAuthGuard } from './loggedAuth.guard';
 
 
 const routes: Routes = [
@@ -15,17 +16,13 @@ const routes: Routes = [
   },
   {
     path: 'register',
+    canActivate: [LoggedAuthGuard],
     component: RegisterComponent,
-    data: {
-      isLogged: false
-    }
   },
   {
     path: 'login',
+    canActivate: [LoggedAuthGuard],
     component: LoginComponent,
-    data: {
-      isLogged: false
-    }
   },
   // {
   //   path: '**',
