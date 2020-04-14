@@ -1,6 +1,12 @@
+# About Site
+Meme It will help is a site in which you can upload your favorite memes with your friends fast and easy.
+
 # MemeItAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+
+# MemeItAngularREST
+Download rest server from https://github.com/nstoilov99/Meme-It-Angular-Rest open it with visual studio code. Type 'npm i' and then type 'nodemon index' to start the server
 
 ## Development server
 
